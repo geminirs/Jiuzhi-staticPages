@@ -3,35 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'starter.controllers'])
-
-.controller('DashCtrl', function($scope) {})
-
-.controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-  
-  // $scope.chats = Chats.all();
-  // $scope.remove = function(chat) {
-  //   Chats.remove(chat);
-  }
-})
-
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  //$scope.chat = Chats.get($stateParams.chatId);
-})
-
-.controller('AccountCtrl', function($scope) {
-  // $scope.settings = {
-  //   enableFriends: true
-  // };
-});
-
+angular.module('starter', ['ionic', 'users'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -56,54 +28,21 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
-    url: "/tab",
-    abstract: false,
-    templateUrl: "templates/tabs.html"
+  .state('users', {
+    url: "/users",
+    templateUrl: "templates/users.html",
+    controller: 'userCtrl'
   })
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/menjin-menka-erweima.html',
-        controller: 'DashCtrl'
-      }
-    }
-  })
-
-  .state('tab.chats', {
-      url: '/chats',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/wuye-jiaofei-all.html',
-          controller: 'ChatsCtrl'
-        }
-      }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/wuye-jiaofei-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    });
-
-  // .state('tab.account', {
-  //   url: '/account',
-  //   views: {
-  //     'tab-account': {
-  //       templateUrl: 'templates/tab-account.html',
-  //       controller: 'AccountCtrl'
-  //     }
-  //   }
-  // })
+  .state('user', {
+    url: '/users/:userName',
+    templateUrl: 'templates/user.html',
+    controller: 'userCtrl'
+  });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/users');
 
 });
