@@ -2,13 +2,14 @@
 
 /*override of ionic styles*/
 /*color usage overriding*/
-.bar.bar-positive,	/*header,footer*/
-.button.button-positive, .button.button-positive.activated,	/*button*/
-.toggle.toggle-positive input:checked + .track  /*toggle*/
+/*.bar.bar-positive,
+.button.button-positive, .button.button-positive.activated,	
+.toggle.toggle-positive input:checked + .track 
 {
 	background-color: #4cb5bf;
 	border-color: #4cb5bf;
-}
+}*/
+
 .tab-item.tab-item-active { color: #4cb5bf; } 	/*active tab color*/
 
 .bar.bar-positive { box-shadow: 2px 2px 7px #333; }
@@ -40,7 +41,7 @@ label, .label { color: #888; }
 .xxxl { font-size: 48px; }
 
 /* home */
-.avtar {
+.avatar {
 	width: 34px; height: 34px;
 	position: absolute; top: 5px; right: 8px; 
 }
