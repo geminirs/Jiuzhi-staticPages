@@ -3,7 +3,17 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'users'])
+angular.module('starter', ['ionic'])
+
+
+
+.controller('homeCtrl', function($scope){
+
+})
+
+.controller('menjinCtrl', function($scope){
+
+})
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -28,21 +38,111 @@ angular.module('starter', ['ionic', 'users'])
   $stateProvider
 
   // setup an abstract state for the tabs directive
-  .state('users', {
-    url: "/users",
-    templateUrl: "templates/users.html",
-    controller: 'userCtrl'
+  .state('home', {
+    url: "/home",
+    templateUrl: "templates/home.html",
+    controller: 'homeCtrl'
   })
 
-  // Each tab has its own nav history stack:
+  // 智能门禁相关页面
 
-  .state('user', {
-    url: '/users/:userName',
-    templateUrl: 'templates/user.html',
-    controller: 'userCtrl'
-  });
+  .state('menjin', {
+    url: '/menjin',
+    abstract: true,
+    templateUrl: 'templates/menjin/menjin.html'
+  })
 
+    .state('menjin.menka', {
+      url: '/menka',
+      views: {
+        'menka': {
+          templateUrl: 'templates/menjin/menjin-menka-add.html'    
+        }
+      }
+    })
+      // menjin.menka.add
+      // menjin.menka.remove
+
+    .state('menjin.visitor', {
+      url: '/visitor',
+      views: {
+        'visitor': {
+          templateUrl: 'templates/menjin/menjin-visitor-add.html'    
+        }
+      }
+    })
+
+    .state('menjin.remote', {
+      url: '/remote',
+      views: {
+        'remote': {
+          templateUrl: 'templates/menjin/menjin-yuancheng.html'
+        }
+      }
+    })
+  // 物业相关页面结构
+  .state('wuye', {
+    url: '/wuye',
+    abstract: true,
+    templateUrl: ''
+  })
+
+    .state('wuye.jiaofei', {
+      url: '/jiaofei',
+      templateUrl: 'templates/wuye/wuye-jiaofei-all.html'
+    })
+
+      .state('wuye.jiaofei-detail', {
+        url: '/detail',
+        templateUrl: 'templates/wuye/wuye-jiaofei-detail.html'
+      })
+
+  // 停车场相关页面结构
+  .state('parking', {
+    url: '/parking',
+    abstract: true,
+    templateUrl: 'templates/parking/parking.html'
+  })  
+
+    .state('parking.chewei', {
+      url: '/chewei',
+      views: {
+        'parking-chewei': {
+          templateUrl: 'templates/parking/parking-chewei-check.html'    
+        }
+      }
+    })
+
+    .state('parking.fanxiang', {
+      url: '/fanxiang',
+      views: {
+        'parking-fanxiang': {
+          templateUrl: 'templates/parking/parking-fanxiang.html'    
+        }
+      }
+      
+    })
+
+    .state('parking.jiaofei', {
+      url: '/jiaofei',
+      views: {
+        'parking-jiaofei': {
+          templateUrl: 'templates/parking/parking-jiaofei.html'    
+        }
+      }
+      
+    })
+
+      .state('parking.jiaofei-detail', {
+        url: '/detial',
+        views: {
+          'parking-detail': {
+            templateUrl: 'templates/parking/parking-jiaofei-detail.html'    
+          }
+        }
+        
+      })
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/users');
+  $urlRouterProvider.otherwise('/home');
 
 });
