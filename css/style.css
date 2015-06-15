@@ -1,26 +1,57 @@
-/* Empty. Add your own CSS if you like */
+/* 
+	common styles for Jiuzhi
+	last updated: 2015-06-15;
+	
+	sturcture
+		- override/enhancement of ionic styles
+		- global setting
+		- navigation
+			> header
+			> tabs
+		- forms
+		- content
+		
+*/
 
-/*override of ionic styles*/
-/*color usage overriding*/
-/*.bar.bar-positive,
-.button.button-positive, .button.button-positive.activated,	
-.toggle.toggle-positive input:checked + .track 
-{
-	background-color: #4cb5bf;
-	border-color: #4cb5bf;
-}*/
 
-.tab-item.tab-item-active { color: #4cb5bf; } 	/*active tab color*/
-
-.bar.bar-positive { box-shadow: 2px 2px 7px #333; }
-.bar .title { font-size: 20px; }
+/* override of ionic styles */
+.row + .row { margin-top: 0; }
+.col-15 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 15%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 15%;
+  -ms-flex: 0 0 15%;
+  flex: 0 0 15%;
+  max-width: 15%; 
+}
+.col-40 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 40%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 40%;
+  -ms-flex: 0 0 40%;
+  flex: 0 0 40%;
+  max-width: 40%; 
+}
 
 /* Global setting */
 body { font-family: Microsoft YaHei; }
+
 .center { 
 	text-align: center; 
 	display: -webkit-box;
 	-webkit-box-pack: center;
+}
+.center-v {
+	display: -webkit-box;
+	-webkit-box-align: center;
+}
+.center-both {
+	display: -webkit-box;
+	text-align: center;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
 }
 
 .mt10 { margin-top: 10px;}
@@ -32,6 +63,30 @@ body { font-family: Microsoft YaHei; }
 .border-bottom-only .item { border-width: 0 0 1px 0;}
 .padding-no { padding: 0; }
 
+
+/* navigation */
+
+.avatar {
+	width: 34px; height: 34px;
+	position: absolute; top: 5px; right: 8px; 
+}
+
+.tab-item.tab-item-active { color: #4cb5bf; } 	/*active tab color*/
+
+.bar.bar-light { 
+	border-bottom: 1px solid #dcdcdc; 
+}
+.bar.bar-light .title { 
+	font-size: 20px; 
+	color: #4cb5bf; 
+}
+	.bar.bar-light .title img {
+		vertical-align: middle;
+	}
+
+
+
+
 /* form */
 label, .label { color: #888; }
 .description { color: #aaa; font-size: 0.8em; padding-left: 1em; }
@@ -39,82 +94,8 @@ label, .label { color: #888; }
 
 /* content */
 .xxxl { font-size: 48px; }
-
-/* home */
-.avatar {
-	width: 34px; height: 34px;
-	position: absolute; top: 5px; right: 8px; 
-}
-.sub-header { 
-	height: 44px; line-height: 24px;
-	background: #57585a; color: #fff;
-	box-shadow: 5px 5px 7px #333; 
- }
-	.weather { text-align: right; }
-
-.feature-tile { padding: 0px; margin: 0px; color: #fff; text-align: center; }
-	/*ionic 设置 .row display: flex; 使得多行垂直居中对齐失效，需要继续跟进。#todo
-	.row.feature-tile { 
-		
-	}
-	.feature-tile .title { display: table-cell; vertical-align: middle; }
-		.feature-tile .title span { display: inline-block; }*/
+.grey { color: #aaa; }
 
 
-	.feature-tile.large { 
-		margin-top: 0px; 
-		font-size: 24px; font-weight: normal;
-		color: #fff;
-		background-size: 100% 100%;
-		height: 200px;
-	}
-		
-		.door {
-			background: url(../img/management.png) no-repeat;
-		}
-			.door .title { background: #4cb5bf; opacity: 0.9; }
-				.door span { line-height: 160px; }
-
-		.car-park { 
-			height: 200px;
-			background: url(../img/parking.png) no-repeat;
-		}
-			.car-park .title { background: #57585a; opacity: 0.75; }
-				.car-park span { line-height: 200px; }
-
-	.feature-tile.medium { padding: 20px 15px 15px; }
-		.monitor { }
-			.monitor .title {
-				height: 100px;
-				line-height: 100px;
-				background-color: #fcda52;
-				background-image: url(../img/monitor.png);
-				background-repeat: no-repeat;
-				background-position: left top;
-				font-size: 24px;
-			}
-
-	.feature-tile.small { 
-		width: 30%; 
-		height: 90px; 
-		margin: 5px;
-		color: #fff;
-		padding-top: 62px;
-		text-align: center;
-		background-repeat: no-repeat;
-		background-position: center 30%;
-	}		
-		.property { 
-			background-color: #FA6567;
-			background-image: url(../img/property.png); 
-		}
-		.hotel { 
-			background: #57B4E0; 
-			background-image: url(../img/hotel.png);
-		}
-		.market { 
-			background: #92CF68;
-			background-image: url(../img/mkt.png);
-		}
 
 
